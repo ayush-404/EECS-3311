@@ -63,10 +63,10 @@ public class MyPanel extends JPanel{
         InsertionSort.sort(shapes);
     }
 
-    Shape[] getShapes() {
-        Shape[] copiedShapes = new Shape[6];
+    public List<Shape> getShapes() {
+        List<Shape> copiedShapes = new ArrayList<Shape>();
         for(int i = 0; i < 6 ; i++ ) {
-            copiedShapes[i] = shapes.get(i).copy();
+            copiedShapes.add(shapes.get(i).copy());
         }
         return copiedShapes;
     }

@@ -1,8 +1,21 @@
+// Singleton class
+
 package shapes;
 
 import java.util.List;
 
 public class InsertionSort {
+    private InsertionSort uniqInstance = null;
+
+    private InsertionSort() {}
+
+    public InsertionSort getInstance() {
+        if(uniqInstance == null) {
+            uniqInstance = new InsertionSort();
+        }
+        return uniqInstance;
+    }
+
     public static void sort(List<Shape> shapes) {
         for(int i = 1; i < 6; i++) {
             for(int j = i ; j > 0 ; j--) {

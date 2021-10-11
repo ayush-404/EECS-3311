@@ -6,9 +6,11 @@ import java.util.Random;
 public class ShapeFactory {
     private static Random rand = new Random();
     private static int currPos;
-    public ShapeFactory() {
-        rand = new Random();
+    private ShapeFactory(int seed) {
+        rand = new Random(seed);
     }
+
+
     public static MyRectangle createRectangle(int left, int top, int width, int height, Color color) {
         return new MyRectangle(left, top, width, height, color);
     }
