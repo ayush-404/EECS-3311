@@ -30,24 +30,29 @@ public class PlayerCollection implements Iterable<GamePlayer>{
 
     }
 
+    private class PlayerCollectionIterator implements Iterator<GamePlayer>{
+        private int index = 0;
+        @Override
+        public boolean hasNext() {
+            return index <= 1;
+        }
+
+        @Override
+        public GamePlayer next() {
+            return players[index++];
+        }
+    }
     @Override
     public Iterator<GamePlayer> iterator() {
-        return new Iterator<GamePlayer>() {
-            private int index = 0;
-            @Override
-            public boolean hasNext() {
-                return index <= 1;
-            }
-
-            @Override
-            public GamePlayer next() {
-                return players[index++];
-            }
-        };
+        return new PlayerCollectionIterator();
     }
 
     public void sort() {
         PlayerSort playerSort = PlayerSort.getInstance();
         playerSort.sort(players);
+    }
+
+    GamePlayer[] getPlayers() {
+        return players;
     }
 }
